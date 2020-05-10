@@ -24,13 +24,22 @@ export HISTIGNORE='ls:pwd:exit:history'
 # https://nkmk.github.io/blog/shell-history/
 # http://www.denet.ad.jp/technology/2013/05/vol1-history.html
 
-alias ll='ls -lFG --color'
-alias la='ls -aFG --color'
+# ls の alias はお好みに応じてオプション調整
+# with-color
 alias ls='ls -FG --color'
+alias ll='ls -lFG --color'
+# or
+#alias ll='ls -ltrFG --color'
+alias la='ls -aFG --color'
 # no-color
-#alias ll='ls -lFG'
-#alias la='ls -aFG'
 #alias ls='ls -FG'
+#alias ll='ls -lFG'
+# or
+#alias ll='ls -ltrFG'
+#alias la='ls -aFG'
+
+# clear screen
+alias cls='echo -ne "\ec\e[3J"'
 
 alias rm='rm -i'
 alias cp='cp -i'
@@ -41,6 +50,24 @@ alias hexdump='/usr/bin/hexdump -C -v'
 alias xxd='/usr/bin/xxd -g 1'
 
 export EDITOR=/usr/bin/vim
+
+# お好みに応じたビルドイン関数のカスタマイズ
+function settitle ()
+{
+  t="[$@]@`hostname`"
+  echo -ne "\e]2;$t\007"
+}
+
+function cd()
+{
+   builtin cd $@ && settitle `builtin pwd`
+}
+
+function pwd()
+{
+  settitle `builtin pwd`
+  builtin pwd $@
+}
 
 #export PAGER=/usr/bin/lv
 # modern less:
