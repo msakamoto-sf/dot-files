@@ -160,6 +160,10 @@ set fdm=marker
 
 "colorscheme blue
 
+" Vundler install :
+" git clone http://github.com/gmarik/vundle.git ~/.vim/vundle.git
+" (see : http://blog.livedoor.jp/sasata299/archives/51711587.html )
+
 "Classic Vundle/Bundle {{{
 "filetype off
 "set rtp+=~/.vim/vundle.git/
