@@ -1,0 +1,34 @@
+# NOTE 1 : "^[" : for VIM, type Ctrl-v, next ESC
+# NOTE 2 : "^G" : for VIM, type Ctrl-v, next Ctrl-g
+# erace by current bgcolor
+defbce on
+# set bell msg
+bell_msg "^G"
+# encoding settings
+defkanji utf-8
+defencoding utf-8
+encoding utf-8 utf-8
+# use light color for bold char
+#attrcolor b ".I"
+# use 256 color
+term xterm-256color
+# for putty resize problems : see http://d.hatena.ne.jp/ousttrue/20080511/1210494446
+termcapinfo xterm-256color 'is=^[r^[m^[2J^[H^[?7h^[?1;4;6l'
+defscrollback 10000
+# for less, vim
+altscreen on
+escape ^Tt
+vbell off
+bell_msg "Bell in window %^G"
+# auto dettach for terminal hungup
+autodetach on
+startup_message off
+#logfile "$HOME/.screen/screen-%Y%m%d-%n.log"
+#deflog on
+
+caption always "%{= wb} %-w%{=bu dr}%n %t%{-}%+w %{=b wk} %-040=[%l] %Y/%m/%d %C:%s %A"
+# see http://blog.remora.cx/2010/02/gnu-screen-2.html
+#caption always "%{= wb} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wk} [%l] %{=b wb}%y/%m/%d(%D) %{=b wm}%c"
+#caption always "%{= Rk} %?%F%{b kr}%? %?%h%:%t (screen #%n)%? %{-}"
+#hardstatus alwayslastline "%{= Gk} %-Lw%40L>%{b kg} %n %t %{-}%+Lw%-040=%{b km} %l %{.b} %Y/%m/%d %C:%s %A "
+#sorendition "= Rk"

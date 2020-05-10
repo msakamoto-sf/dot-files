@@ -1,0 +1,73 @@
+[user]
+        name = NNNN MMMMM
+        email = aaaaaa@aaaaaaa
+[alias]
+        unstage = reset HEAD --
+        revert = checkout --
+        br = branch -ra -vv
+        # git branch -a はローカルで track されているもののみ。
+        # git branch -ra なら、trackしていないリモートのbranchも表示してくれる。
+        # -vv はtracking状態も表示してくれる。
+
+        #ci = commit -a
+        ci = commit
+        co = checkout
+        stat = status
+        st = status
+        praise = blame
+        up = pull --rebase
+        url = config --get remote.origin.url
+        edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+        add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+        ranking = shortlog -s -n --no-merges
+
+        # git diff のマジックについてはググってください。
+        # see: http://d.hatena.ne.jp/murank/20110320/1300619118
+        # see: http://qiita.com/hide/items/17b970c485e803cbce08
+        # see: http://d.hatena.ne.jp/perlcodesample/20090708/1246679588
+        # see: http://chulip.org/entry/20121006/1349406906
+        d1 = diff HEAD~
+        d2 = diff HEAD~~
+        d3 = diff HEAD~~~
+        d4 = diff HEAD~~~~
+        d5 = diff HEAD~~~~~
+        d10 = diff HEAD~~~~~~~~~~
+
+        log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
+        log-all = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
+
+[core]
+# Linux環境やWin環境行ったり来たりだと、改行の自動変換を無効化しておいたほうが良いかも？
+# see: http://qiita.com/shuhei/items/2da839de8803cb335f86
+# autocrlf = false で改行変換を完全にOFF,
+# safecrlf = true にすると、改行コードが混在している場合は変換しないというオプション(らしい)
+#       autocrlf = input
+        autocrlf = false
+        safecrlf = true
+        quotepath = false
+        # 共通で使う .gitignore
+        excludesfile = C:\\Users\\xxxx\\yyyy\\gitignore_global.txt
+        # from http://stackoverflow.com/questions/2183900/how-do-i-prevent-git-diff-from-using-a-pager
+        # git config --global core.pager cat
+        #pager = cat
+        # pager 設定はお好みで。
+        pager = less -X
+        # Many Windows programs (including the Windows Explorer) have problems with directory trees
+        # nested so deeply that the absolute path is longer than 260 characters.
+        # Therefore, Git for Windows refuses to check out such files by default.
+        # You can overrule this default by setting core.longPaths, e.g. git clone -c core.longPaths=true ....
+        longPaths = true
+
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        interactive = auto
+        grep = auto
+
+[push]
+# see: http://dqn.sakusakutto.jp/2012/10/git_push.html
+# Git 1.7.11未満
+#       default = current
+# Git 1.7.11以降
+        default = simple
