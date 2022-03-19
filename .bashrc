@@ -19,24 +19,31 @@ unset HISTCONTROL
 # 履歴から無視するコマンドの例
 export HISTIGNORE='ls:pwd:exit:history'
 
-# 参考
+# bash 参考
 # bash(1)
 # https://nkmk.github.io/blog/shell-history/
 # http://www.denet.ad.jp/technology/2013/05/vol1-history.html
+# bash history 参考
+# https://qiita.com/bezeklik/items/56a597acc2eb568860d7
 
 # ls の alias はお好みに応じてオプション調整
-# with-color
-alias ls='ls -FG --color'
-alias ll='ls -lFG --color'
+# with-color ("--color" for linux, "-G" for mac)
+alias ls='ls -F --color'
+alias ll='ls -lF --color'
 # or
-#alias ll='ls -ltrFG --color'
-alias la='ls -aFG --color'
+#alias ll='ls -ltrF --color'
+alias la='ls -aF --color'
 # no-color
-#alias ls='ls -FG'
-#alias ll='ls -lFG'
+#alias ls='ls -F'
+#alias ll='ls -lF'
 # or
-#alias ll='ls -ltrFG'
-#alias la='ls -aFG'
+#alias ll='ls -ltrF'
+#alias la='ls -aF'
+
+# NOTE: lsのcolor出力に関する linux と mac でのオプションの違い
+# linux では "--color" オプションになるが、mac では "-G" オプションになる。
+# linux で "-G" オプションを指定してしまうと、group情報を表示しないという意味となってしまうので注意。
+# 参考: https://qiita.com/hitochan777/items/8e7a570e53d3a5d20bb1
 
 # clear screen
 alias cls='echo -ne "\ec\e[3J"'
