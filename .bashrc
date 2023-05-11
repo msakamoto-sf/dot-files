@@ -2,11 +2,11 @@
 
 #PS1="[\u@\h \W]\$ "
 # very simple:
-export PS1="[\u:\W]\$ "
+export PS1="[\u:\W]\\$ "
 # newline with full:
-export PS1="\r\n[\D{%F} \t \u@\H job#\j/his#\!/com#\# \w]\r\n\$ "
+export PS1="\r\n[\D{%F} \t \u@\H job#\j/his#\!/com#\# \w]\r\n\\$ "
 # newline normal:
-export PS1="\r\n[\D{%F} \t \u:\w]\r\n\$ "
+export PS1="\r\n[\D{%F} \t \u:\w]\r\n\\$ "
 
 # ヒストリ履歴の個数は99,999個まで上げておく。
 export HISTSIZE=99999
