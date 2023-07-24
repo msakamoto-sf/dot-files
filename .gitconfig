@@ -71,3 +71,7 @@
 #       default = current
 # Git 1.7.11以降
         default = simple
+
+[fetch]
+        # git config --global fetch.prune true
+        prune = true
