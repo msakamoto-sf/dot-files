@@ -75,3 +75,6 @@
 [fetch]
         # git config --global fetch.prune true
         prune = true
+
+[init]
+        defaultBranch = main
