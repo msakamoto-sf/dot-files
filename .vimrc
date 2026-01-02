@@ -9,7 +9,8 @@
 " https://vim-jp.org/vimdoc-ja/usr_41.html
 " https://vim-jp.org/vimdoc-ja/eval.html
 
-" 日本語ファイルの文字コード判別
+" NOTE: もし 2020年代以降の vim で以下のセクションで何かしら不都合があった場合は、削除してOK.
+" {{{ 日本語ファイルの文字コード判別(fileencoding, fileencodings)
 " see:
 " http://www.ksknet.net/vi/vim_1.html
 " https://www.ht.sfc.keio.ac.jp/~katsuya/blog2/2008/02/vimrc.html
@@ -76,10 +77,15 @@ if has('autocmd')
   endfunction
   autocmd BufReadPost * call AU_ReCheck_FENC()
 endif
+" }}}
 
 " 使用する改行コードの一覧と優先順位の設定
 " see: https://vim-jp.org/vimdoc-ja/options.html#'fileformats'
 set fileformats=unix,dos,mac
+
+" 文字化けが直らない場合、terminal との通信で使う文字コードについても手動設定してみる。
+" set termencoding=utf-8
+" see: https://vim-jp.org/vimdoc-ja/usr_45.html
 
 if exists('&ambiwidth')
   " UTF-8のときCJKの記号文字を全角表示にする(半角表示で重なるのを防ぐ)
@@ -272,6 +278,9 @@ set fdm=marker
 " :set fileencoding=shift_jis (エンコーディングSHIFT_JISに変更。)
 " :set fileencoding=utf-8 (エンコーディングUTF-8に変更。)
 "
+" NOTE: encodingに指定できる値:
+" https://vim-jp.org/vimdoc-ja/mbyte.html#encoding-values
+"
 " ファイルフォーマット(=改行コード)の変更
 " :set fileformat=ファイルフォーマットの種類
 " :set ff=ファイルフォーマットの種類
@@ -287,6 +296,11 @@ set fdm=marker
 " :set fileencoding=euc-jp ...
 " (3) 最後にファイルの保存を行います。
 " :w ...
+"
+" see:
+" https://itcweb.cc.affrc.go.jp/affrit/faq/tips/vim-enc
+" https://qiita.com/take4s5i/items/a347be456b2f1312150c
+" https://vim-jp.org/vimdoc-ja/usr_45.html
 " }}}
 " {{{ buffer list/switch
 " ref: https://vim-jp.org/vimdoc-ja/usr_22.html#22.4
